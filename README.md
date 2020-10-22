@@ -23,6 +23,7 @@ python test_api.py
 Using CURL:
 ```
 curl -X GET https://vast-river-42197.herokuapp.com/api -d query='I love that movie!'
+curl -X GET https://vast-river-42197.herokuapp.com/api -d query='that movie was shit!'
 ```
 
 Using Python:
