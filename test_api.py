@@ -1,7 +1,7 @@
 import requests
 import json
 
-heroku_url = 'https://vast-river-42197.herokuapp.com/' # change to your app name# sample data
+heroku_url = 'https://vast-river-42197.herokuapp.com/api/'
 data = {"query":"That movie was boring!"}
 
 data = json.dumps(data)
