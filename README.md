@@ -12,7 +12,7 @@ Try this API on : https://vast-river-42197.herokuapp.com/api
 ### Running on your station
 Recommend using [Anaconda](https://www.anaconda.com/distribution/). Anaconda does not come with Flask/Requests, so you will need to install those seperately. 
 ```
-pip install flask flask_restful nltk profanity
+pip install -r requirements.txt
 ```
 For additional information on installing Flask & Profanity: [Flask](https://flask.palletsprojects.com/en/1.1.x/), [Profanity](https://pypi.org/project/profanity/)
 ```
