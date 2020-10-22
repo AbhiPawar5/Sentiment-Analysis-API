@@ -1,4 +1,5 @@
 import nltk
+nltk.downloader.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from flask import Flask, jsonify
 from flask_restful import reqparse, abort, Api, Resource
@@ -8,7 +9,7 @@ app = Flask(__name__)
 api = Api(app)
 
 parser = reqparse.RequestParser()
-parser.add_argument('query')
+parser.add_argument('query',type=str, help='Please send query for analysis!', required=True)
 
 class PredictSentiment(Resource):
 	"""GET Method to return the sentiment and profanity of the query sentence"""
@@ -20,8 +21,12 @@ class PredictSentiment(Resource):
 		user_query = args['query']
 
 		sid = SentimentIntensityAnalyzer()
-		pred = sid.polarity_scores(user_query)
 
+		#Calculate sentiment of the user query
+		if user_query:
+			pred = sid.polarity_scores(user_query)
+
+		#Check for profanity in query and censor the words, if any
 		if profanity.contains_profanity(user_query):
 			prof_dict['profanity_check'] = True
 			prof_dict['profanity_censored'] = profanity.censor(user_query) 
@@ -36,7 +41,7 @@ class PredictSentiment(Resource):
 		return jsonify(output)
 
 
-api.add_resource(PredictSentiment, '/')
+api.add_resource(PredictSentiment, '/api')
 
 if __name__ == '__main__':
 	app.run(debug=True)
