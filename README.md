@@ -31,6 +31,9 @@ Using Python:
 heroku_url = 'https://vast-river-42197.herokuapp.com/api'
 data = {"query":"I love that movie!"}
 response = requests.get(heroku_url, data)
+
+data = {"query":"that movie was shit!"}
+response = requests.get(heroku_url, data)
 ```
 
 ### Example response 
