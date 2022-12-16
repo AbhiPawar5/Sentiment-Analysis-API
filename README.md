@@ -8,6 +8,7 @@ Flask was created by Armin Ronacher of Pocoo, an international group of Python e
 
 ## API URL
 Try this API on : https://vast-river-42197.herokuapp.com/api
+#### NOTE : The app is currently stopped due to change in Heroku's free tier policy. I am planning to deploy this app on another free tier soon. Thanks
  
 ### Running on your station
 Recommend using [Anaconda](https://www.anaconda.com/distribution/). Anaconda does not come with Flask/Requests, so you will need to install those seperately. 
